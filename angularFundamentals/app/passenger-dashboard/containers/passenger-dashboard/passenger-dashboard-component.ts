@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Passenger } from '../../models/passenger.interface';
 
 @Component({
   selector: 'passenger-dashboard',
   styleUrls: ['passenger-dashboard.component.scss'],
   template: `
+  <passenger-count></passenger-count>
+  <passenger-detail></passenger-detail>
   <h2>Airline Passengers</h2>
   <div>
     <ul>
@@ -22,29 +24,34 @@ import { Passenger } from '../../models/passenger.interface';
   </div>
   `
   })
-  export class PassengerDashboardComponent {
+  export class PassengerDashboardComponent implements OnInit {
 
-    passengers: Passenger[] = [
-      {
-        id: 1,
-        name: 'John',
-        checkedIn: true,
-        checkedInDate: 1490742000000,
-        children: [{ name: 'Adam', age: 1}]
-      },
-      {
-        id: 2,
-        name: 'Ciara',
-        checkedIn: false,
-        checkedInDate: null,
-        children: []
-      },
-      {
-        id: 3,
-        name: 'Aidan',
-        checkedIn: true,
-        checkedInDate: 1490742000000,
-        children: null
-      }
-    ];
+    passengers: Passenger[] = [];
+
+    ngOnInit() {
+      this.passengers = [
+        {
+          id: 1,
+          name: 'John',
+          checkedIn: true,
+          checkedInDate: 1490742000000,
+          children: [{ name: 'Adam', age: 1}]
+        },
+        {
+          id: 2,
+          name: 'Ciara',
+          checkedIn: false,
+          checkedInDate: null,
+          children: []
+        },
+        {
+          id: 3,
+          name: 'Aidan',
+          checkedIn: true,
+          checkedInDate: 1490742000000,
+          children: null
+        }
+      ];
+    }
+
   }
