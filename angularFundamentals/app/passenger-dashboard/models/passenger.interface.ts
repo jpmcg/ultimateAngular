@@ -8,5 +8,5 @@ export interface Passenger {
   name: string,
   checkedIn: boolean,
   checkedInDate?: number
-  children: Child[] | null
+  baggage: string
 }
